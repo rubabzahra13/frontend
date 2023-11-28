@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 import Login from './components/login';
 import Signup from './components/signup';
 import UserProfile from './components/userprofile';
 import EditProfile from './components/editprofile';
+import AdminDashboard from './components/AdminDashboard';
 
 
 import './App.css';
@@ -27,16 +28,17 @@ function App() {
   };
 
   return (
-    <Router>
+    
       <Routes>
-        { <Route path="/login" element={<Login />} /> }
-        { <Route path="/signup" element={<Signup />} /> }
+        <Route path="/login" element={<Login />} /> 
+        
+        <Route path="/AdminDashboard" element={<AdminDashboard />} />
+        <Route path="/signup" element={<Signup />} /> 
         <Route path="/Homepage" element={<HomePage />} />
         <Route path="/editprofile" element={<EditProfile user={defaultUserData} onSave={handleSaveProfile} />} />
         <Route path="/userprofile" element={<UserProfile user={defaultUserData} />} />
-       
       </Routes>
-    </Router>
+    
   );
 }
 
